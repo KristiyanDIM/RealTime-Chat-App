@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include_once "config.php";
 
@@ -56,7 +56,7 @@ if (!empty($fname) && !empty($lname) && !empty($email) && !empty($password)) {
                                 $_SESSION['unique_id'] = $result['unique_id'];
                                 echo "success";
                             } else {
-                                echo "This email address does not exist"; 
+                                echo "This email address does not exist";
                             }
                         } else {
                             die("Error inserting user: " . mysqli_error($conn));
@@ -77,6 +77,3 @@ if (!empty($fname) && !empty($lname) && !empty($email) && !empty($password)) {
 } else {
     echo "All input fields are required!";
 }
-?>
-
-

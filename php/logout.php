@@ -13,13 +13,11 @@ if (isset($_SESSION['unique_id'])) {
         echo "Status updated successfully.<br>"; // Тестови изход
         session_unset();
         session_destroy();
-        header("Location: ../login.php"); 
-        } else {
+        header("Location: ../login.php");
+    } else {
         echo "❌ Error updating status: " . mysqli_error($conn); // Покажи евентуална грешка
     }
 } else {
     header("location: ../login.php");
     exit();
 }
-?>
-    

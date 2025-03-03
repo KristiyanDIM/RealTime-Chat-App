@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,25 +10,25 @@
 </head>
 
 <?php
-    session_start();
-    if(isset($_SESSION['unique_id'])){
-        header("location: users.php");
-        exit();
-    }
+session_start();
+if (isset($_SESSION['unique_id'])) {
+    header("location: users.php");
+    exit();
+}
 ?>
 
 <?php include_once "header.php"; ?>
 
 <body>
 
-    <div class="wrapper"> 
+    <div class="wrapper">
         <section class="form signup">
             <header>RealTime Chat App</header>
             <form action="#" method="post" enctype="multipart/form-data" autocomplete="off">
                 <div class="error-text"></div>
                 <div class="name-details">
                     <div class="field input">
-                        <label>First name</label>   
+                        <label>First name</label>
                         <input type="text" name="fname" placeholder="First Name" required>
                     </div>
                     <div class="field input">
@@ -46,7 +47,7 @@
                 </div>
                 <div class="field image">
                     <label>Profile image</label>
-                    <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg,image/jpg" required> 
+                    <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg,image/jpg" required>
                 </div>
                 <div class="field button">
                     <input type="submit" name="submit" value="Continue to Chat">
@@ -60,4 +61,5 @@
     <script type="text/javascript" src="js/pass-show-hide.js"></script>
     <script type="text/javascript" src="js/signup.js"></script>
 </body>
+
 </html>

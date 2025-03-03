@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include_once "config.php";
 
@@ -22,7 +22,7 @@ $sql = "SELECT DISTINCT u.unique_id, u.fname, u.lname, u.status, u.img
 $query = mysqli_query($conn, $sql);
 
 // Проверяваме дали има резултати
-if(mysqli_num_rows($query) > 0){
+if (mysqli_num_rows($query) > 0) {
     while ($row = mysqli_fetch_assoc($query)) {
         // Проверка дали потребителят вече е добавен
         if (!in_array($row['unique_id'], $uniqueUsers)) {
@@ -33,7 +33,7 @@ if(mysqli_num_rows($query) > 0){
                      FROM messages 
                      WHERE (incoming_msg_id = {$row['unique_id']} OR outgoing_msg_id = {$row['unique_id']})
                      AND (outgoing_msg_id = {$outgoing_id} OR incoming_msg_id = {$outgoing_id})
-                     ORDER BY msg_id DESC LIMIT 1"; 
+                     ORDER BY msg_id DESC LIMIT 1";
 
             $query2 = mysqli_query($conn, $sql2);
             $row2 = mysqli_fetch_assoc($query2);
@@ -80,4 +80,3 @@ if(mysqli_num_rows($query) > 0){
 
 // Извеждаме резултата
 echo empty($output) ? "❌ Няма резултати!" : $output;
-?>
