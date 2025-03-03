@@ -1,138 +1,137 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
+
+/* Reset styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none;
     font-family: 'Poppins', sans-serif;
 }
 
 body {
     display: flex;
-    align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    background: #808080;
-    padding: 0 10px;
+    align-items: center;
+    height: 100vh;
+    background: url('../images/background.jpg') no-repeat center center/cover, linear-gradient(135deg, #1e1e2f, #252545);
+    backdrop-filter: blur(10px);
 }
 
 .wrapper {
-    background: #fff;
-    max-width: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1), 0 32px 64px -48px rgba(0, 0, 0, 0.5);
+    height: 100%;
 }
 
 .form {
-    padding: 25px 30px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
+    padding: 25px;
+    width: 400px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
 }
 
 .form header {
-    font-size: 25px;
-    font-weight: 600;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #e6e6e6;
-}
-
-.form form {
-    margin: 20px 0;
-}
-
-.form form .error-text {
-    color: #721c24;
-    padding: 8px 10px;
+    font-size: 26px;
+    font-weight: bold;
     text-align: center;
-    border-radius: 5px;
-    background: #f8d7da;
-    border: 1px solid #f5c6cb;
-    margin-bottom: 10px;
-    display: none;
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
-.form form .name-details {
-    display: flex;
-}
-
-.form .name-details .field:first-child {
-    margin-right: 10px;
-}
-
-.form .name-details .field:last-child {
-    margin-left: 10px;
-}
-
-.form form .field {
-    display: flex;
-    margin-bottom: 10px;
-    flex-direction: column;
+.field {
+    margin-bottom: 15px;
     position: relative;
-
 }
 
-.form form .field label {
-    margin-bottom: 2px;
-}
-
-.form form .input input {
-    height: 40px;
-    width: 100%;
-    font-size: 16px;
-    padding: 0 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.form form .field input {
-    outline: none;
-}
-
-.form form .image input {
-    font-size: 17px;
-}
-
-.form form .button input {
-    height: 45px;
-    border: none;
+.field label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
     color: #fff;
-    font-size: 17px;
-    background: #3e424b;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 13px;
 }
 
-.form form .field i {
+.field input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.field input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.field input:focus {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.field .fas {
     position: absolute;
     right: 15px;
-    top: 70%;
-    color: #ccc;
-    cursor: pointer;
+    top: 68%;
     transform: translateY(-50%);
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.3s;
 }
 
-.form form .firld i.active::before {
-    color: #3e424b;
-    content: "\f070";
+.field .fas:hover {
+    color: rgba(255, 255, 255, 1);
 }
 
-.form .link {
+.field.button input {
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.field.button input:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.link {
     text-align: center;
-    margin: 10px 0;
-    font-size: 17px;
+    margin-top: 15px;
+    font-size: 14px;
 }
 
-.form .link a {
-    color: #3e424b;
+.link a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-.form .link a:hover {
+.link a:hover {
     text-decoration: underline;
+    color: rgba(255, 255, 255, 0.8);
 }
+
+
 
 .users {
-    padding: 25px 30px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
+    padding: 25px;
+    width: 450px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
 }
 
 .users header,
@@ -160,7 +159,7 @@ body {
 }
 
 :is(.users, .users-list) .content .details {
-    color: #000;
+    color: #fff;
     margin-left: 20px;
 }
 
@@ -171,7 +170,7 @@ body {
 
 .users header .logout {
     display: block;
-    background: #3e424b;
+    background: rgba(255, 255, 255, 0.3);
     color: #fff;
     outline: none;
     border: none;
@@ -179,6 +178,11 @@ body {
     text-decoration: none;
     border-radius: 5px;
     font-size: 17px;
+    transition: 0.3s;
+}
+
+.users header .logout:hover {
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .users .search {
@@ -249,7 +253,11 @@ body {
     padding-bottom: 10px;
     margin-bottom: 15px;
     padding-right: 15px;
-    border-bottom-color: #f1f1f1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
 .users-list a:last-child {
@@ -260,12 +268,37 @@ body {
 .users-list a img {
     height: 40px;
     width: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
 }
 
 .users-list a .details p {
     color: #67676a;
 }
 
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.chat-area {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+
+}
 
 .chat-area header {
     display: flex;
@@ -280,7 +313,7 @@ body {
 }
 
 .chat-area header .back-icon {
-    color: #3e424b;
+    color: #fff;
     font-size: 18px;
 }
 
@@ -299,7 +332,6 @@ body {
     background: #d3d3d3;
     box-shadow: inset 0 32px 32px -32px rgb(0 0 0 / 5%),
         inset 0 -32px 32px -32px rgb(0 0 0 / 5%);
-
     scroll-behavior: smooth;
 
 }
@@ -378,11 +410,11 @@ body {
 }
 
 .typing-area button {
-    color: #fff;
+    color: #ffffff;
     width: 55px;
     border: none;
     outline: none;
-    background: #3e424b;
+    background: #2d2f35;
     font-size: 19px;
     cursor: pointer;
     opacity: 0.7;
