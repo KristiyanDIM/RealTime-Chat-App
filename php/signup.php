@@ -77,3 +77,4 @@ if (!empty($fname) && !empty($lname) && !empty($email) && !empty($password)) {
 } else {
     echo "All input fields are required!";
 }
+?>

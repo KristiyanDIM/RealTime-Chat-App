@@ -80,3 +80,4 @@ if (mysqli_num_rows($query) > 0) {
 
 // Извеждаме резултата
 echo empty($output) ? "❌ Няма резултати!" : $output;
+?>
