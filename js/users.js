@@ -34,7 +34,7 @@ searchBar.onkeyup = () => {
   };
 
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhr.send("searchTerm=" + searchTerm); // Увери се, че параметърът е правилно изпратен
+  xhr.send("searchTerm=" + searchTerm); 
 };
 
 setInterval(() => {

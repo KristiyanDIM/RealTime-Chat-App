@@ -5,10 +5,8 @@ include_once "config.php";
 $outgoing_id = $_SESSION['unique_id'];
 $searchTerm = isset($_POST['searchTerm']) ? mysqli_real_escape_string($conn, $_POST['searchTerm']) : "";
 
-// Променлива за резултата
 $output = "";
 
-// Масив за проследяване на уникални потребители
 $uniqueUsers = [];
 
 // SQL заявка за извличане на потребители, които имат съобщения с текущия потребител
@@ -24,9 +22,8 @@ $query = mysqli_query($conn, $sql);
 // Проверяваме дали има резултати
 if (mysqli_num_rows($query) > 0) {
     while ($row = mysqli_fetch_assoc($query)) {
-        // Проверка дали потребителят вече е добавен
         if (!in_array($row['unique_id'], $uniqueUsers)) {
-            $uniqueUsers[] = $row['unique_id']; // Добавяне на потребителя в масива за уникални
+            $uniqueUsers[] = $row['unique_id']; 
 
             // SQL заявка за последното съобщение между потребителя и текущия
             $sql2 = "SELECT msg, outgoing_msg_id 
@@ -38,7 +35,6 @@ if (mysqli_num_rows($query) > 0) {
             $query2 = mysqli_query($conn, $sql2);
             $row2 = mysqli_fetch_assoc($query2);
 
-            // Обработка на съобщението
             if (mysqli_num_rows($query2) > 0) {
                 $result = $row2['msg'];
             } else {
@@ -57,7 +53,6 @@ if (mysqli_num_rows($query) > 0) {
             $offline = ($row['status'] == "Offline now") ? "offline" : "";
             $hid_me = ($outgoing_id == $row['unique_id']) ? "hide" : "";
 
-            // Път към изображението на потребителя
             $imagePath = "/REALTIME CHAT APP/php/images/" . $row['img'];
 
             // Извеждане на резултата
@@ -74,10 +69,8 @@ if (mysqli_num_rows($query) > 0) {
         }
     }
 } else {
-    // Ако няма резултати
     $output .= "❌ Няма резултати!";
 }
 
-// Извеждаме резултата
 echo empty($output) ? "❌ Няма резултати!" : $output;
 ?>
