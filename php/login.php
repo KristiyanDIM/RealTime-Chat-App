@@ -28,6 +28,11 @@ if(mysqli_num_rows($sql) > 0) {
     $row = mysqli_fetch_assoc($sql);
     $enc_pass = $row['password'];
 
+    
+    if (empty($enc_pass)) {
+        die("❌ Error: Password is missing from the database for this user.");
+    }
+
     // Проверяваме паролата
     if(password_verify($password, $enc_pass)) {  
         $status = 'online';

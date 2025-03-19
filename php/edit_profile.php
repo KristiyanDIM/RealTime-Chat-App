@@ -23,17 +23,48 @@ if (isset($_POST['update'])) {
     $fname = mysqli_real_escape_string($conn, $_POST['fname']);
     $lname = mysqli_real_escape_string($conn, $_POST['lname']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = !empty($_POST['password']) ? md5($_POST['password']) : $row['password']; // Ако не се промени, остава същата парола
 
+    // Ако потребителят е въвел нова парола
+    if (!empty($_POST['password'])) {
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    } else {
+        $password = $row['password'];  // Ако не е въведена нова парола, оставяме старата
+    }
+
+    // Обработка на каченото изображение
     if (!empty($_FILES['image']['name'])) {
         $img_name = $_FILES['image']['name'];
         $img_tmp = $_FILES['image']['tmp_name'];
-        $img_path = "php/images/" . $img_name;
-        move_uploaded_file($img_tmp, $img_path);
+        $img_size = $_FILES['image']['size'];
+        $img_error = $_FILES['image']['error'];
+
+        // Определяне на пътя за запис
+        $target_dir = "php/images/";
+        $target_file = $target_dir . basename($img_name);
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+        // Проверка дали изображението е от правилния тип
+        $allowed_types = array('jpg', 'jpeg', 'png');
+        if (!in_array($imageFileType, $allowed_types)) {
+            echo "Грешка: Подкрепят се само изображения с разширение .jpg, .jpeg или .png.";
+        } elseif ($img_size > 5000000) { // 5MB ограничение за размер на изображението
+            echo "Грешка: Файлът е твърде голям. Максимален размер е 5MB.";
+        } elseif ($img_error !== 0) {
+            echo "Грешка: Проблем при качването на снимката.";
+        } else {
+            // Опитваме се да преместим файла в целевата директория
+            if (move_uploaded_file($img_tmp, $target_file)) {
+                $img_name = basename($img_name);  // Ако качването е успешно
+            } else {
+                echo "Грешка: Не можем да преместим снимката в папката за качване.";
+            }
+        }
     } else {
-        $img_name = $row['img']; 
+        // Ако няма ново изображение, запазваме старото
+        $img_name = $row['img'];
     }
 
+    // Изпълнение на SQL заявката за актуализация
     $update_query = "UPDATE users SET fname='{$fname}', lname='{$lname}', email='{$email}', password='{$password}', img='{$img_name}' WHERE unique_id='{$unique_id}'";
     
     if (mysqli_query($conn, $update_query)) {
