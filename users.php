@@ -34,7 +34,9 @@ include_once "header.php";
                     }
                     ?>
 
-                    <img src="php/images/<?php echo $row['img'];  ?>" alt="">
+                    <a href="php/edit_profile.php">
+                        <img src="php/images/<?php echo $row['img'];  ?>" alt="">
+                    </a>
                     <div class="details">
                         <span><?php echo $row['fname'] . " " . $row['lname']; ?></span>
                         <p><?php echo $row['status']; ?></p>
