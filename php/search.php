@@ -23,7 +23,7 @@ $query = mysqli_query($conn, $sql);
 if (mysqli_num_rows($query) > 0) {
     while ($row = mysqli_fetch_assoc($query)) {
         if (!in_array($row['unique_id'], $uniqueUsers)) {
-            $uniqueUsers[] = $row['unique_id']; 
+            $uniqueUsers[] = $row['unique_id'];
 
             // SQL заявка за последното съобщение между потребителя и текущия
             $sql2 = "SELECT msg, outgoing_msg_id 
@@ -73,4 +73,3 @@ if (mysqli_num_rows($query) > 0) {
 }
 
 echo empty($output) ? "❌ Няма резултати!" : $output;
-?>

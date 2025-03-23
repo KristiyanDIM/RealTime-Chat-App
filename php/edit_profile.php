@@ -65,7 +65,13 @@ if (isset($_POST['update'])) {
     }
 
     // Изпълнение на SQL заявката за актуализация
-    $update_query = "UPDATE users SET fname='{$fname}', lname='{$lname}', email='{$email}', password='{$password}', img='{$img_name}' WHERE unique_id='{$unique_id}'";
+    $update_query = "UPDATE users SET 
+    fname='{$fname}', 
+    lname='{$lname}', 
+    email='{$email}', 
+    password='{$password}', 
+    img='{$img_name}' 
+    WHERE unique_id='{$unique_id}'";
     
     if (mysqli_query($conn, $update_query)) {
         header("Location: ../users.php");
