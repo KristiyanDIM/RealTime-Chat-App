@@ -36,7 +36,8 @@ if(mysqli_num_rows($sql) > 0) {
     // Проверяваме паролата
     if(password_verify($password, $enc_pass)) {  
         $status = 'online';
-        $sql2 = mysqli_query($conn, "UPDATE users SET status = '{$status}' WHERE unique_id = {$row['unique_id']}");
+        $sql2 = mysqli_query($conn, "UPDATE users SET status = '{$status}' 
+        WHERE unique_id = {$row['unique_id']}");
 
         if($sql2) {
             $_SESSION['unique_id'] = $row['unique_id'];
