@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Време на генериране: 19 март 2025 в 20:53
+-- Време на генериране: 28 март 2025 в 12:46
 -- Версия на сървъра: 9.1.0
 -- Версия на PHP: 8.3.14
 
@@ -34,13 +34,29 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `outgoing_msg_id` varchar(255) DEFAULT NULL,
   `msg` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`msg_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=79 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Схема на данните от таблица `messages`
 --
 
 INSERT INTO `messages` (`msg_id`, `incoming_msg_id`, `outgoing_msg_id`, `msg`) VALUES
+(78, '1362537836', '545570754', 'ko iskash be'),
+(77, '545570754', '1362537836', '😁'),
+(76, '1362537836', '1071410374', 'ай чао'),
+(75, '1071410374', '1362537836', 'ай '),
+(74, '1071410374', '1362537836', 'да '),
+(73, '1362537836', '1071410374', '13 часа става ли '),
+(72, '1071410374', '1362537836', 'ами към колко '),
+(71, '1071410374', '1362537836', 'добре '),
+(70, '1362537836', '1071410374', 'Дай в събота брат '),
+(69, '1071410374', '1362537836', 'Кога ще ходим на фитнес'),
+(68, '802616344', '253090620', '😁'),
+(67, '802616344', '253090620', '😉lk'),
+(66, '802616344', '253090620', ';kdvnm'),
+(65, '253090620', '802616344', 'kefnke'),
+(64, '253090620', '802616344', ';sldemfcw'),
+(63, '802616344', '253090620', 'lwkjefnjlnw'),
 (62, '673844406', '1362537836', 'яй '),
 (61, '673844406', '1362537836', 'що бе '),
 (60, '1362537836', '673844406', 'я си гледай работата'),
@@ -76,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`user_id`, `unique_id`, `fname`, `lname`, `email`, `password`, `img`, `status`) VALUES
-(9, '253090620', 'Stancho', 'Naydenov', 'stancho@gmail.com', '$2y$10$8qn1hC2VGJ8riyWhVV4FSeNQLlfM3AOnRt3cM1x21DgNIMizXGOKi', '1740681428_1.png', 'offline now'),
+(9, '253090620', 'Stancho', 'Naydenov', 'stancho@gmail.com', '$2y$10$8qn1hC2VGJ8riyWhVV4FSeNQLlfM3AOnRt3cM1x21DgNIMizXGOKi', '1.png', 'offline now'),
 (10, '1071410374', 'Denkata', 'Kilima', 'denka@gmail.com', '$2y$10$xTqVMF31vKGrafT.NJMiYOzLvHHpVNE.6vknUbPPZSeiQvUawn1qW', '1741782829_Screenshot_2025-03-12-14-30-49-060_com.miui.gallery[1].jpg', 'offline now'),
 (11, '545570754', 'Tosho', 'Dimitrov', 'tosho@gmail.com', '$2y$10$kKNns7g1LUxjZdEEHtjzduYsrPj8Du1ke8ww/G7TeX3AJtxjsDMwi', 'cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA4L2pvYjEwMzQtZWxlbWVudC0wNi0zOTcucG5n.webp', 'offline now'),
 (12, '673844406', 'Димитър ', 'Димитров', 'batmitko@gmail.com', '$2y$10$CdGfdNGLvhhqJ0ZBdZxZiOV6kmZbQaot/.9rRVHtuITMeevmAkLQu', '488-4887957_facebook-teerasej-profile-ball-circle-circular-profile-picture.png', 'offline now'),
